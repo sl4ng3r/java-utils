@@ -1,4 +1,4 @@
-package de.slfw.io.fileSearch;
+package de.slfw.io.filesearch;
 
 import java.io.File;
 import java.util.List;

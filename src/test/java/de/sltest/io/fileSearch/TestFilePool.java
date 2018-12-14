@@ -9,19 +9,18 @@ import org.junit.Before;
 import org.junit.Test;
 
 import de.slfw.io.FileOperator;
-import de.slfw.io.fileSearch.FilePool;
-import de.slfw.io.fileSearch.MaxEntriesOfPoolReachedListener;
+import de.slfw.io.filesearch.FilePool;
+import de.slfw.io.filesearch.MaxEntriesOfPoolReachedListener;
 
 public class TestFilePool implements MaxEntriesOfPoolReachedListener {
 
 	
 	private static FilePool filePool;
-	private static List<File> testFiles;
-	private static final int POOLSIZE = 3;
+	private static final long POOLSIZE = 3;
 	
 	@org.junit.BeforeClass
 	public static void initialize() {
-		testFiles = FileOperator.getAllFiles(Thread.currentThread().getContextClassLoader().getResource("testfolder_search").getFile(), true);
+		
 		filePool = new FilePool((List<File>  theCachedFiles) -> System.out.println(theCachedFiles.size()) , POOLSIZE);
 	}
 	

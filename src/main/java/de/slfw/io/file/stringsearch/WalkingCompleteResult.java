@@ -1,4 +1,4 @@
-package de.slfw.io.file.stringSearch;
+package de.slfw.io.file.stringsearch;
 
 public class WalkingCompleteResult {
 

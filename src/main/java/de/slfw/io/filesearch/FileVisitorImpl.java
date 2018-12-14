@@ -1,22 +1,21 @@
-package de.slfw.io.fileSearch;
+package de.slfw.io.filesearch;
 
 import java.io.IOException;
 import java.nio.file.FileVisitResult;
+import java.nio.file.FileVisitor;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.attribute.BasicFileAttributes;
 
-import javax.inject.Inject;
-
-public class FileVisitor implements java.nio.file.FileVisitor<Path> {
+public class FileVisitorImpl implements FileVisitor<Path> {
 	
 	private final Path startDir;
 	
 	
 	private FilePool filePool;
-	private long visitedFileSize = 0;
+
 	
-	public FileVisitor(Path startDir, FilePool filePool) {
+	public FileVisitorImpl(Path startDir, FilePool filePool) {
 		super();
 		this.startDir = startDir;
 		this.filePool = filePool;
@@ -39,8 +38,10 @@ public class FileVisitor implements java.nio.file.FileVisitor<Path> {
 
 	@Override
 	public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-		filePool.addFile(file, attrs);
-		visitedFileSize = visitedFileSize + attrs.size();
+		if(!attrs.isDirectory())
+		{
+			filePool.addFile(file, attrs);
+		}
 		return FileVisitResult.CONTINUE;
 	}
 
@@ -49,8 +50,6 @@ public class FileVisitor implements java.nio.file.FileVisitor<Path> {
 		return FileVisitResult.CONTINUE;
 	}
 
-	public long getVisitedFileSize() {
-		return visitedFileSize;
-	}
+	
 	
 }
