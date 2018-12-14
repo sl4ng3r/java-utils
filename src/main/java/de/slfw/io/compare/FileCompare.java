@@ -1,5 +1,5 @@
 
-package de.slfw.io;
+package de.slfw.io.compare;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,6 +13,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.Vector;
 
+import de.slfw.io.FileOperator;
 import de.slfw.util.StringUtil;
 
 /**

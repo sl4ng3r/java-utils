@@ -1,4 +1,4 @@
-package de.slfw.io.file.stringSearch;
+package de.slfw.io.fileSearch;
 
 import java.io.IOException;
 import java.nio.file.FileVisitResult;
@@ -10,18 +10,13 @@ import javax.inject.Inject;
 
 public class FileVisitor implements java.nio.file.FileVisitor<Path> {
 	
-	
-	
-	
-	//private FileSearchroomManager searchManager;
 	private final Path startDir;
 	
 	
-	@Inject
 	private FilePool filePool;
 	private long visitedFileSize = 0;
 	
-	public FileVisitor(Path startDir ) {
+	public FileVisitor(Path startDir, FilePool filePool) {
 		super();
 		this.startDir = startDir;
 		this.filePool = filePool;
@@ -29,11 +24,9 @@ public class FileVisitor implements java.nio.file.FileVisitor<Path> {
 
 	@Override
 	public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
-		
-		
 		boolean finishedSearch = Files.isSameFile(dir, startDir);
 	    if (finishedSearch) {
-	    	//searchManager.scanFinished();
+	    	filePool.flush();
 	        return FileVisitResult.TERMINATE;
 	    }
 		return FileVisitResult.CONTINUE;
@@ -48,7 +41,6 @@ public class FileVisitor implements java.nio.file.FileVisitor<Path> {
 	public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
 		filePool.addFile(file, attrs);
 		visitedFileSize = visitedFileSize + attrs.size();
-		//searchManager.addProcessableFile(file, attrs.size());
 		return FileVisitResult.CONTINUE;
 	}
 

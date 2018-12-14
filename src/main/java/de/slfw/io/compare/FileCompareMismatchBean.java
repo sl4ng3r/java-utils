@@ -1,4 +1,4 @@
-package de.slfw.io;
+package de.slfw.io.compare;
 
 /**
  * 

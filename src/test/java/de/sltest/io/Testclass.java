@@ -6,9 +6,9 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.Vector;
 
-import de.slfw.io.FileCompare;
 import de.slfw.io.FileOperationListener;
 import de.slfw.io.FileOperator;
+import de.slfw.io.compare.FileCompare;
 
 
 

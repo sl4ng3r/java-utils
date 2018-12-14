@@ -11,8 +11,8 @@ import org.jboss.weld.environment.se.WeldContainer;
 
 import com.sun.glass.ui.Application;
 
-import de.slfw.io.file.stringSearch.FilePool;
-import de.slfw.io.file.stringSearch.FileVisitor;
+import de.slfw.io.fileSearch.FilePool;
+import de.slfw.io.fileSearch.FileVisitor;
 
 
 
@@ -35,8 +35,8 @@ public class TestStringSearch {
 
 	     
 	 
-	     FileVisitor fw = new FileVisitor(Paths.get("blubb"));
-	     fw.visitFile(null, null);
+	     //FileVisitor fw = new FileVisitor(Paths.get("blubb"));
+	     //fw.visitFile(null, null);
 	     
 	     
 	     container.close();
