@@ -10,11 +10,22 @@ public class FileSearcher implements MaxEntriesOfPoolReachedListener {
 	
 	
 	private Path searchDirectory;
+	private FilesFoundListener filesFoundListener;
+	private long filePackageSize;
 	
+	
+	
+	public FileSearcher( Path searchDirectory, FilesFoundListener filesFoundListener, long filePackageSize) {
+		super();
+		this.filesFoundListener = filesFoundListener;
+		this.filePackageSize = filePackageSize;
+	}
+
+
 	public void search() throws IOException {
 		
 		
-		FilePool filePool = new FilePool(this, 10000);
+		FilePool filePool = new FilePool(this, filePackageSize);
 		FileVisitor fileVisitor = new FileVisitor(searchDirectory, filePool);
 		Files.walkFileTree(searchDirectory, fileVisitor);
 		
@@ -23,7 +34,8 @@ public class FileSearcher implements MaxEntriesOfPoolReachedListener {
 
 	@Override
 	public void clearPool(List<File> cachedFiles) {
-		System.out.println(cachedFiles);
+		filesFoundListener.foundFiles(cachedFiles);
+		//System.out.println(cachedFiles);
 		
 	}
 	

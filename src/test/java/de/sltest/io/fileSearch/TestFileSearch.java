@@ -4,13 +4,15 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import de.slfw.io.fileSearch.FileSearcher;
+import de.slfw.io.fileSearch.FilesFoundListener;
 
-public class TestFileSearch {
+public class TestFileSearch implements FilesFoundListener{
 
 	
 	private FileSearcher fs;
@@ -19,16 +21,22 @@ public class TestFileSearch {
 	
 	@Before
 	public void init() {
-		fs = new FileSearcher();
+		Path path = new File(searchDirectory).toPath();
+		fs = new FileSearcher(path, this, 10000);
 		
 	}
 	
 	
 	@Test
 	public void searchDirectory() throws IOException {
-		Path path = new File(searchDirectory).toPath();
-		fs.setSearchDirectory(path);
 		fs.search();
+		
+	}
+
+
+	@Override
+	public void foundFiles(List<File> files) {
+		// TODO Auto-generated method stub
 		
 	}
 	
