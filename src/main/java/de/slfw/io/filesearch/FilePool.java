@@ -27,12 +27,23 @@ public class FilePool {
 	}
 
 
-
+	public synchronized void addFile(Path filePath) {
+		addFile(filePath.toFile(), null);
+	}
+	
+	public synchronized void addFile(File file) {
+		addFile(file, null);
+	}
+	
 	public synchronized void addFile(Path filePath, BasicFileAttributes attrs) {
+		addFile(filePath.toFile(), attrs);
+	}
+	
+	
+	public synchronized void addFile(File file, BasicFileAttributes attrs) {
 		if(actualCashSize >= maxPoolSizeByte) {
 			flush();
 		}
-		File file = filePath.toFile();
 		cachedFiles.add(file);
 		actualCashSize = actualCashSize + file.length();
 	}
@@ -45,13 +56,27 @@ public class FilePool {
 		clearPool();
 	}
 	
+	
+	
 	private void clearPool() {
 		actualCashSize = 0;
 		cachedFiles = new ArrayList<File>();
 	}
 	
-	public Integer getActualPoolSize() {
+	public Long getActualPoolSize() {
+		Long poolSize = 0L;
+		for(File file : cachedFiles) {
+			poolSize = poolSize + file.length();
+		}
+		return poolSize;
+	}
+	
+	public Integer getActualAmoutOfEntries() {
 		return cachedFiles.size();
+	}
+	
+	public void setMaxEntriesOfPoolReachedListener(MaxEntriesOfPoolReachedListener maxEntriesOfPoolReachedListener) {
+		this.maxEntriesOfPoolReachedListener = maxEntriesOfPoolReachedListener;
 	}
 	
 }
