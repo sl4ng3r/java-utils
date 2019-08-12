@@ -7,13 +7,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 import de.slfw.io.file.stringsearch.SearchParams;
-import de.slfw.io.file.stringsearch.StringSearcher;
+import de.slfw.io.file.stringsearch.FileContentSearcher;
 import de.slfw.io.filesearch.FileSearcher;
 
 public class TestStringSearch {
 
 	private Path searchDirectory;
-	private StringSearcher stringSearcher;
+	private FileContentSearcher stringSearcher;
 	private final static long POOLSIZEBYTES = 10000;
 	private final static String searchString = "theSearchString";
 

@@ -6,27 +6,11 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Named;
-
-@ApplicationScoped
-public class FilePool {
-
-	private MaxEntriesOfPoolReachedListener maxEntriesOfPoolReachedListener;
-	private long maxPoolSizeByte;
-	private List<File> cachedFiles;
-	private long actualCashSize;
+public abstract class FilePool {
+	private PoolFlushedListener poolFlushListener;
+	protected List<File> cachedFiles;
 	
 	
-	public FilePool(MaxEntriesOfPoolReachedListener filePoolMaxEntriesReachedListener, long maxPoolSize) {
-		super();
-		this.maxEntriesOfPoolReachedListener = filePoolMaxEntriesReachedListener;
-		this.maxPoolSizeByte = maxPoolSize;
-		this.actualCashSize = 0;
-		clearPool();
-	}
-
-
 	public synchronized void addFile(Path filePath) {
 		addFile(filePath.toFile(), null);
 	}
@@ -40,27 +24,20 @@ public class FilePool {
 	}
 	
 	
-	public synchronized void addFile(File file, BasicFileAttributes attrs) {
-		if(actualCashSize >= maxPoolSizeByte) {
-			flush();
-		}
-		cachedFiles.add(file);
-		actualCashSize = actualCashSize + file.length();
-	}
 	
+	public void setPoolFlushListener(PoolFlushedListener poolFlushListener) {
+		this.poolFlushListener = poolFlushListener;
+	}
 	/**
 	 * Flushes the remaining files
 	 */
 	public synchronized void flush() {
-		maxEntriesOfPoolReachedListener.clearPool(cachedFiles);
+		poolFlushListener.clearPool(cachedFiles);
 		clearPool();
 	}
 	
-	
-	
-	private void clearPool() {
-		actualCashSize = 0;
-		cachedFiles = new ArrayList<File>();
+	public Integer getActualAmoutOfEntries() {
+		return cachedFiles.size();
 	}
 	
 	public Long getActualPoolSize() {
@@ -71,12 +48,9 @@ public class FilePool {
 		return poolSize;
 	}
 	
-	public Integer getActualAmoutOfEntries() {
-		return cachedFiles.size();
-	}
 	
-	public void setMaxEntriesOfPoolReachedListener(MaxEntriesOfPoolReachedListener maxEntriesOfPoolReachedListener) {
-		this.maxEntriesOfPoolReachedListener = maxEntriesOfPoolReachedListener;
-	}
+	
+	public abstract void addFile(File file, BasicFileAttributes attrs);
+	public abstract void clearPool();
 	
 }

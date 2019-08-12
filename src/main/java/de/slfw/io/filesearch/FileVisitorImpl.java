@@ -12,10 +12,10 @@ public class FileVisitorImpl implements FileVisitor<Path> {
 	private final Path startDir;
 	
 	
-	private FilePool filePool;
+	private FilePoolMaxSize filePool;
 
 	
-	public FileVisitorImpl(Path startDir, FilePool filePool) {
+	public FileVisitorImpl(Path startDir, FilePoolMaxSize filePool) {
 		super();
 		this.startDir = startDir;
 		this.filePool = filePool;

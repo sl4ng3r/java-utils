@@ -11,13 +11,13 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import de.slfw.io.FileOperator;
-import de.slfw.io.filesearch.FilePool;
-import de.slfw.io.filesearch.MaxEntriesOfPoolReachedListener;
+import de.slfw.io.filesearch.FilePoolMaxSize;
+import de.slfw.io.filesearch.PoolFlushedListener;
 
-public class TestFilePool implements MaxEntriesOfPoolReachedListener {
+public class TestFilePool implements PoolFlushedListener {
 
 	
-	private static FilePool filePool;
+	private static FilePoolMaxSize filePool;
 	private static final long POOLSIZE = 10000;
 	private static Path path;
 	private Integer clearCount = 0;
@@ -26,7 +26,7 @@ public class TestFilePool implements MaxEntriesOfPoolReachedListener {
 	@Before
 	public void  initialize() {
 		path = new File(Thread.currentThread().getContextClassLoader().getResource("testfolder_search").getFile()).toPath();
-		filePool = new FilePool(this , POOLSIZE);
+		filePool = new FilePoolMaxSize(this , POOLSIZE);
 		clearCount = 0;
 		allFiles = FileOperator.getAllFiles(path.toString(), true);
 	}
@@ -55,5 +55,6 @@ public class TestFilePool implements MaxEntriesOfPoolReachedListener {
 	public void clearPool(List<File> cachedFiles) {
 		clearCount++;
 	}
+	
 	
 }

@@ -64,6 +64,10 @@ public class FileOperator {
 		}
 		return null;
 	}
+	
+	public static boolean hasFileExtention(File file, String extention) {
+		return extention.equals(getFileExtention(file));
+	}
 
 	/**
 	 * Creates a new file at <b>path</b> and fills it with the input string.

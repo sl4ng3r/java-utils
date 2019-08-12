@@ -9,7 +9,7 @@ import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.List;
 
-public class FileSearcher implements MaxEntriesOfPoolReachedListener {
+public class FileSearcher implements PoolFlushedListener {
 	
 	
 
@@ -32,7 +32,7 @@ public class FileSearcher implements MaxEntriesOfPoolReachedListener {
 
 
 	public void startSearching() throws IOException {		
-		FilePool filePool = new FilePool(this, fileSearchParams.getFilePackageSize());
+		FilePoolMaxSize filePool = new FilePoolMaxSize(this, fileSearchParams.getFilePackageSize());
 		FileVisitorImpl fileVisitor = new FileVisitorImpl(fileSearchParams.getSearchDirectory(), filePool);
 		Boolean recursive = fileSearchParams.getRecursive();
 		if(recursive) {
