@@ -18,7 +18,7 @@ public class TestFilePool implements PoolFlushedListener {
 
 	
 	private static FilePoolMaxSize filePool;
-	private static final long POOLSIZE = 10000;
+	private final long POOLSIZE = 100000;
 	private static Path path;
 	private Integer clearCount = 0;
 	private List<File> allFiles;
@@ -36,8 +36,10 @@ public class TestFilePool implements PoolFlushedListener {
 		for(File file : allFiles) {
 			filePool.addFile(file);
 		}
-		assertEquals("Amaout of Pool clears not equal", clearCount, new Integer(3));
-		assertEquals("Amaout of Pool clears not equal", filePool.getActualPoolSize(), new Long(173));
+		assertEquals("Amaout of Pool clears not equal", filePool.getActualPoolSize(), new Long(43012));
+		filePool.flush();
+		assertEquals("Amaout of Pool clears not equal", clearCount, new Integer(4));
+
 	}
 	
 	@Test
@@ -54,6 +56,7 @@ public class TestFilePool implements PoolFlushedListener {
 	@Override
 	public void clearPool(List<File> cachedFiles) {
 		clearCount++;
+		System.out.println(cachedFiles);
 	}
 	
 	

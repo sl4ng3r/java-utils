@@ -10,7 +10,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 
 @ApplicationScoped
-public class FilePoolMaxSize extends FilePool {
+public class FilePoolMaxSize extends AbstractFilePool {
 
 	
 	private long maxPoolSizeByte;
@@ -30,7 +30,7 @@ public class FilePoolMaxSize extends FilePool {
 	public synchronized void addFile(File file, BasicFileAttributes attrs) {
 		long fileLength = file.length();
 		
-		if(actualCashSize + fileLength  >= maxPoolSizeByte) {
+		if(actualCashSize + fileLength  >= maxPoolSizeByte && cachedFiles.size() > 0) {
 			flush();
 		}
 		cachedFiles.add(file);

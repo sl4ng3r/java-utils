@@ -1,4 +1,4 @@
-package de.slfw.io.file.stringsearch;
+package de.slfw.delete;
 
 public interface WalkingCompleteListener {
 

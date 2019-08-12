@@ -6,7 +6,7 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class FilePool {
+public abstract class AbstractFilePool {
 	private PoolFlushedListener poolFlushListener;
 	protected List<File> cachedFiles;
 	

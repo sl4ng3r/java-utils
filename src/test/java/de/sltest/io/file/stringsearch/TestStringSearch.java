@@ -6,7 +6,7 @@ import java.nio.file.Path;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.slfw.io.file.stringsearch.SearchParams;
+import de.slfw.io.file.stringsearch.FileContentSearchParams;
 import de.slfw.io.file.stringsearch.FileContentSearcher;
 import de.slfw.io.filesearch.FileSearcher;
 
@@ -30,7 +30,7 @@ public class TestStringSearch {
 	@Test
 	public void testStringSearch() {
 		
-		SearchParams searchParams = SearchParams.builder().withCaseSensitive(false).withSearchString(searchString).build();
+		FileContentSearchParams searchParams = FileContentSearchParams.builder().withCaseSensitive(false).withSearchString(searchString).build();
 		//stringSearcher.startSearch(searchParams);
 	}
 

@@ -7,14 +7,14 @@ import javax.annotation.Generated;
  * @author alex
  *
  */
-public final class SearchParams {
+public final class FileContentSearchParams {
 
 	private String extention;
 	private boolean caseSensitive;
 	private String searchString;
 
 	@Generated("SparkTools")
-	private SearchParams(Builder builder) {
+	private FileContentSearchParams(Builder builder) {
 		this.extention = builder.extention;
 		this.caseSensitive = builder.caseSensitive;
 		this.searchString = builder.searchString;
@@ -47,7 +47,7 @@ public final class SearchParams {
 	}
 
 	/**
-	 * Creates builder to build {@link SearchParams}.
+	 * Creates builder to build {@link FileContentSearchParams}.
 	 * @return created builder
 	 */
 	@Generated("SparkTools")
@@ -56,7 +56,7 @@ public final class SearchParams {
 	}
 
 	/**
-	 * Builder to build {@link SearchParams}.
+	 * Builder to build {@link FileContentSearchParams}.
 	 */
 	@Generated("SparkTools")
 	public static final class Builder {
@@ -82,8 +82,8 @@ public final class SearchParams {
 			return this;
 		}
 
-		public SearchParams build() {
-			return new SearchParams(this);
+		public FileContentSearchParams build() {
+			return new FileContentSearchParams(this);
 		}
 	}
 

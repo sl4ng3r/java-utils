@@ -32,11 +32,11 @@
 		</dependency>
 
 
-		<dependency>
+<!-- 		<dependency>
 			<groupId>de.bdk.tools</groupId>
 			<artifactId>filereader</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+		</dependency> -->
 <!-- 		<dependency>
 			<groupId>javax.enterprise</groupId>
 			<artifactId>cdi-api</artifactId>
