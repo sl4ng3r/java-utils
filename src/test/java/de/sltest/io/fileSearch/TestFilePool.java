@@ -18,7 +18,7 @@ public class TestFilePool implements MaxEntriesOfPoolReachedListener {
 
 	
 	private static FilePool filePool;
-	private static final long POOLSIZE = 10000;
+	private static final long POOLSIZE = 100000;
 	private static Path path;
 	private Integer clearCount = 0;
 	private List<File> allFiles;
@@ -53,6 +53,7 @@ public class TestFilePool implements MaxEntriesOfPoolReachedListener {
 
 	@Override
 	public void clearPool(List<File> cachedFiles) {
+		System.out.println(cachedFiles);
 		clearCount++;
 	}
 	

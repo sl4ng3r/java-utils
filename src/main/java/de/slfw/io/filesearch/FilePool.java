@@ -41,7 +41,9 @@ public class FilePool {
 	
 	
 	public synchronized void addFile(File file, BasicFileAttributes attrs) {
-		if(actualCashSize >= maxPoolSizeByte) {
+		long fileLength = file.length();
+		
+		if(actualCashSize + fileLength  >= maxPoolSizeByte) {
 			flush();
 		}
 		cachedFiles.add(file);
@@ -64,11 +66,7 @@ public class FilePool {
 	}
 	
 	public Long getActualPoolSize() {
-		Long poolSize = 0L;
-		for(File file : cachedFiles) {
-			poolSize = poolSize + file.length();
-		}
-		return poolSize;
+		return actualCashSize;
 	}
 	
 	public Integer getActualAmoutOfEntries() {
