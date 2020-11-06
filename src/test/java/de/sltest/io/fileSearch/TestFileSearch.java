@@ -1,22 +1,21 @@
 package de.sltest.io.fileSearch;
 
-import static org.junit.Assert.assertEquals;
+import de.slfw.io.filesearch.FileSearchParams;
+import de.slfw.io.filesearch.FileSearcher;
+import de.slfw.io.filesearch.FilesFoundListener;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
-
-import de.slfw.io.filesearch.FileSearchParams;
-import de.slfw.io.filesearch.FileSearcher;
-import de.slfw.io.filesearch.FilesFoundListener;
-
-import static de.sltest.TestConstants.*;
+import static de.sltest.TestConstants.NUMBEROFFILESIN_TESTFOLDER_SEARCH;
+import static de.sltest.TestConstants.NUMBEROFFILESIN_TESTFOLDER_SEARCH_FIRSTLEVEL;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestFileSearch implements FilesFoundListener{
 
@@ -27,7 +26,7 @@ public class TestFileSearch implements FilesFoundListener{
 	private final long MAXPOOLSIZE = 10000;
 	
 	
-	@Before
+	@BeforeEach
 	public void init() {
 		path = new File(Thread.currentThread().getContextClassLoader().getResource("testfolder_search").getFile()).toPath();
 		foundFiles = new ArrayList<>();
@@ -41,7 +40,7 @@ public class TestFileSearch implements FilesFoundListener{
 		FileSearchParams fileSearchParams = new FileSearchParams.Builder(path, MAXPOOLSIZE).withRecursive(true).build();
 		fs = new FileSearcher(fileSearchParams, this);
 		fs.startSearching();
-		assertEquals("Not the number of files found", NUMBEROFFILESIN_TESTFOLDER_SEARCH, foundFiles.size());
+		assertEquals(NUMBEROFFILESIN_TESTFOLDER_SEARCH, foundFiles.size(),"Not the number of files found");
 		
 	}
 
@@ -51,7 +50,7 @@ public class TestFileSearch implements FilesFoundListener{
 		FileSearchParams fileSearchParams = new FileSearchParams.Builder(path, MAXPOOLSIZE).withRecursive(false).build();
 		fs = new FileSearcher(fileSearchParams, this);
 		fs.startSearching();
-		assertEquals("Not the number of files found", NUMBEROFFILESIN_TESTFOLDER_SEARCH_FIRSTLEVEL, foundFiles.size());
+		assertEquals( NUMBEROFFILESIN_TESTFOLDER_SEARCH_FIRSTLEVEL, foundFiles.size(),"Not the number of files found");
 		
 	}
 

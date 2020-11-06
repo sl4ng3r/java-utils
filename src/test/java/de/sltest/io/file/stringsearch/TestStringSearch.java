@@ -1,14 +1,12 @@
 package de.sltest.io.file.stringsearch;
 
-import java.io.File;
-import java.nio.file.Path;
-
-import org.junit.Before;
-import org.junit.Test;
-
 import de.slfw.io.file.stringsearch.FileContentSearchParams;
 import de.slfw.io.file.stringsearch.FileContentSearcher;
-import de.slfw.io.filesearch.FileSearcher;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import java.io.File;
+import java.nio.file.Path;
 
 public class TestStringSearch {
 
@@ -17,7 +15,7 @@ public class TestStringSearch {
 	private final static long POOLSIZEBYTES = 10000;
 	private final static String searchString = "theSearchString";
 
-	@Before
+	@BeforeEach
 	public void initialize() {
 		 searchDirectory = new File(
 					Thread.currentThread().getContextClassLoader().getResource("testfolder_search").getFile()).toPath();
