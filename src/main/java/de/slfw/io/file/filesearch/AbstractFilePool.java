@@ -1,9 +1,8 @@
-package de.slfw.io.filesearch;
+package de.slfw.io.file.filesearch;
 
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.attribute.BasicFileAttributes;
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AbstractFilePool {

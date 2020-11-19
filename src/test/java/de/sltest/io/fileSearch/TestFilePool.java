@@ -1,8 +1,8 @@
 package de.sltest.io.fileSearch;
 
-import de.slfw.io.FileOperator;
-import de.slfw.io.filesearch.FilePoolMaxSize;
-import de.slfw.io.filesearch.PoolFlushedListener;
+import de.slfw.io.file.FileOperator;
+import de.slfw.io.file.filesearch.FilePoolMaxSize;
+import de.slfw.io.file.filesearch.PoolFlushedListener;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,14 +1,23 @@
-package de.slfw.io;
+package de.slfw.io.csv;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class CSVLine {
 
     List<String> values = new CopyOnWriteArrayList<>();
+    private Map<String, Integer> headers = new HashMap<>();
+
 
     public CSVLine(String line, String separator) {
         initCsvLine(line, separator);
+    }
+
+    public CSVLine(String line, String separator,Map<String, Integer> headers ) {
+        initCsvLine(line, separator);
+        this.headers = headers;
     }
 
     private void initCsvLine(String line, String separator) {
@@ -22,5 +31,13 @@ public class CSVLine {
 
     public String getValue(Integer index){
         return values.get(index);
+    }
+
+    public String getValue(String headerName) {
+        if (headers.containsKey(headerName)){
+            return values.get(headers.get(headerName));
+        }
+        throw new StringIndexOutOfBoundsException("headername " + headerName + " not found");
+
     }
 }

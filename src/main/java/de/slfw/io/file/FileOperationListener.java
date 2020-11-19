@@ -1,4 +1,5 @@
-package de.slfw.io;
+package de.slfw.io.file;
+
 /**
  * 
  * <p>A listener interface with an fire method witch is invoked by the <code>getNumberOfLinesWithString.</code> and <code>getAllLinesWithString</code> methods

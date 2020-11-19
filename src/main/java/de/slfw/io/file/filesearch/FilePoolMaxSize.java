@@ -1,13 +1,10 @@
-package de.slfw.io.filesearch;
+package de.slfw.io.file.filesearch;
 
 import java.io.File;
-import java.nio.file.Path;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Named;
 
 @ApplicationScoped
 public class FilePoolMaxSize extends AbstractFilePool {

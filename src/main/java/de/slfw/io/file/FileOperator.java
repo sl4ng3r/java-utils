@@ -1,10 +1,9 @@
-package de.slfw.io;
+package de.slfw.io.file;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -14,9 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
-import java.util.zip.ZipEntry;
 
-import de.slfw.io.FileSearchResult.Builder;
 import de.slfw.util.LineOperator;
 
 /**
@@ -434,7 +431,7 @@ public class FileOperator {
 	}
 
 	public static List<FileSearchResult> searchFilesWithContainingString(List<File> files, String searchString,
-			boolean caseSensitive, Integer percentDistance) throws IOException {
+																		 boolean caseSensitive, Integer percentDistance) throws IOException {
 		List<FileSearchResult> fileSearchResults = new ArrayList<FileSearchResult>();
 
 		Integer amountOfFiles = files.size();

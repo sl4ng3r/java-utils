@@ -1,7 +1,7 @@
 package de.sltest.io;
 
-import de.slfw.io.FileOperator;
-import de.slfw.io.FileSearchResult;
+import de.slfw.io.file.FileOperator;
+import de.slfw.io.file.FileSearchResult;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;

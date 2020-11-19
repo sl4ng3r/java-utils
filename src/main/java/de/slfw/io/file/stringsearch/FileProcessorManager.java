@@ -6,11 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 
-import de.slfw.io.filesearch.FileSearchParams;
-import de.slfw.io.filesearch.FileSearcher;
-import de.slfw.io.filesearch.FilesFoundListener;
+import de.slfw.io.file.filesearch.FileSearchParams;
+import de.slfw.io.file.filesearch.FileSearcher;
+import de.slfw.io.file.filesearch.FilesFoundListener;
 
 public class FileProcessorManager {
 

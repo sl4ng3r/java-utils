@@ -1,7 +1,7 @@
 package de.sltest.io;
 
-import de.slfw.io.CSVLine;
-import de.slfw.io.CSVReader;
+import de.slfw.io.csv.CSVLine;
+import de.slfw.io.csv.CSVReader;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +16,7 @@ public class TestCSVReader {
 
     @BeforeEach
     void init(){
-        csvReader = new CSVReader(new File(Thread.currentThread().getContextClassLoader().getResource("testfolder/test.csv").getFile()));
+        csvReader =  CSVReader.build(new File(Thread.currentThread().getContextClassLoader().getResource("testfolder/test.csv").getFile()));
     }
 
     @Test
@@ -37,10 +37,19 @@ public class TestCSVReader {
 
     @Test
     public void testReadInvalidLine() throws IOException {
-        final CSVLine csvLine = csvReader.readLine(11, ",");
+        final CSVLine csvLine = csvReader.readLine(11);
 
         assertEquals(null, csvLine, "emptyValue");
 
+    }
+
+    @Test
+    public void testReadHeaders() throws IOException {
+        final CSVLine csvLine = csvReader.readLine(1);
+        assertEquals("", csvLine.getValue("aaaa"), "emptyValue");
+        assertEquals("bbb", csvLine.getValue("bbbb"), "midValue");
+        assertEquals("ccc", csvLine.getValue("cccc"), "lastValue");
+        assertEquals("asdasdf", csvLine.getValue("dddd"), "lastValue");
     }
 
 }

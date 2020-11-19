@@ -3,7 +3,6 @@ package de.sltest.util;
 import java.io.File;
 import java.io.IOException;
 
-import de.slfw.io.FileOperator;
 import de.slfw.util.Reflect;
 
 public class TestReflect {
@@ -15,7 +14,7 @@ public class TestReflect {
 		
 		
 		try {
-			Reflect.dummyPrint("FileOperator", Reflect.getAll("de.slfw.io.FileOperator", true,"|",true));
+			Reflect.dummyPrint("FileOperator", Reflect.getAll("de.slfw.io.file.FileOperator", true,"|",true));
 			//System.out.println(Reflect.getClassHeader("de.slfw.comparator.DummyComparator"));
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

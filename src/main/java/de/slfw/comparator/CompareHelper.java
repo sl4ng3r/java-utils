@@ -10,9 +10,9 @@ import de.slfw.util.StringUtil;
  * <p>CompareHelper</p>
  * <p>TODO docu me</p>
  *
- * @author Alexander Ströll</a>
+ * @author Alexander StrÃ¶ll</a>
  * @version $Revision$
- */
+ * */
 public class CompareHelper
 {
     private final static int NOINDEX = -1;
@@ -20,27 +20,27 @@ public class CompareHelper
        
     /**
      * 
-     * <p>Zuständig um zu entscheiden, ob etwas vorne oder hinten angefügt werden soll.
-     * Bsp: XXXXXXXXXX|ZZZZZZZZZZZ|PPPPPPPPPPP  unterteilung in 3 Bereiche. Wird jetzt mit mode FRONT übergeben, 
-     * werden alle in sortOrder definierten Keys nach vorne in den X-Bereich sortiert. Dabei wird zusätzlich die
-     * Reihenfolge der Keys innerhalb von sortOrder berücksichtigt. Analog funktioniert es für den P-Bereich. Hierzu
-     * muss allerdings mit mode END übergeben werden. 
-     * Im Z Bereich sind keys, die nicht sortiert werden müssen. Also die nicht in "sortOrder" vorhanden sind. 
+     * <p>ZustÃ¤ndig um zu entscheiden, ob etwas vorne oder hinten angefÃ¼gt werden soll.
+     * Bsp: XXXXXXXXXX|ZZZZZZZZZZZ|PPPPPPPPPPP  unterteilung in 3 Bereiche. Wird jetzt mit mode FRONT Ã¼bergeben,
+     * werden alle in sortOrder definierten Keys nach vorne in den X-Bereich sortiert. Dabei wird zusÃ¤tzlich die
+     * Reihenfolge der Keys innerhalb von sortOrder berÃ¼cksichtigt. Analog funktioniert es fÃ¼r den P-Bereich. Hierzu
+     * muss allerdings mit mode END Ã¼bergeben werden.
+     * Im Z Bereich sind keys, die nicht sortiert werden mÃ¼ssen. Also die nicht in "sortOrder" vorhanden sind.
      * Gibt man dem mode SORTED mit, wird der Bereich Z allderdings noch nach der normalSort - Methode sortiert. (alphabetisch und nummerisch)
-     * FRONT und END können nicht gleichzeitig übergeben werden!! (Tritt dieser Fall auf wird - falls SORTED an
-     * mode übergeben wurde- nur normal sortiert)
-     * Sowohl die methode sortFrontOrEnd wie auch die Methode normalSort liefert entweder -1, 0 oder +1 zurück. Diese 
-     * werden für die Sortierung durch Collections.sort benötigt und geben die Reihenfolge innerhalb der zu sortierenden Collection an. 
+     * FRONT und END kÃ¶nnen nicht gleichzeitig Ã¼bergeben werden!! (Tritt dieser Fall auf wird - falls SORTED an
+     * mode Ã¼bergeben wurde- nur normal sortiert)
+     * Sowohl die methode sortFrontOrEnd wie auch die Methode normalSort liefert entweder -1, 0 oder +1 zurÃ¼ck. Diese
+     * werden fÃ¼r die Sortierung durch Collections.sort benÃ¶tigt und geben die Reihenfolge innerhalb der zu sortierenden Collection an.
      * </p>
      * <p>
-     * Bsp für das setzten des Modus:
+     * Bsp fÃ¼r das setzten des Modus:
      * comp.setMode(AbstractComparator.FRONT | AbstractComparator.SORTED)
      * </p>
      * 
      * @param sortOrder
      * @param leftkey
      * @param rightkey
-     * @return gibt entweder 0 oder +1 zurück
+     * @return gibt entweder 0 oder +1 zurï¿½ck
      */
     public static int sortFrontOrEnd(String[] sortOrder, String leftkey, String rightkey,int mode){
 
@@ -48,15 +48,15 @@ public class CompareHelper
         int indexLeftKey = NOINDEX;
         int indexRightKey = NOINDEX;
 
-        //Falls NONE übergeben wird wird garnicht sortiert
+        //Falls NONE Ã¼bergeben wird wird garnicht sortiert
         if((mode & AbstractComparator.NONE) == AbstractComparator.NONE)
       	  return 0;
         
-        //Falls Front + End übergeben wird
+        //Falls Front + End Ã¼bergeben wird
         if(sortOrder == null || ((mode & (AbstractComparator.END |AbstractComparator.FRONT)) == (AbstractComparator.END | AbstractComparator.FRONT)) ) 
       	  sortOrder = AbstractComparator.NULLARRAY;
         
-        //Falls weder FRONT noch END übergeben wurde, wird auf sortOrder keine Rücksicht mehr genommen
+        //Falls weder FRONT noch END Ã¼bergeben wurde, wird auf sortOrder keine RÃ¼cksicht mehr genommen
         if((mode & AbstractComparator.FRONT) != AbstractComparator.FRONT && (mode & AbstractComparator.END) != AbstractComparator.END)
         	  sortOrder = AbstractComparator.NULLARRAY;	
         
@@ -73,7 +73,7 @@ public class CompareHelper
           if(indexLeftKey != NOINDEX && indexRightKey != NOINDEX) break;
         }
         
-        //Wenn beide Werte aus storkeys sind, wir nach der Position überprüft, ob der indexa 
+        //Wenn beide Werte aus storkeys sind, wir nach der Position Ã¼berprÃ¼ft, ob der indexa
         //kleiner als indexb ist. Falls das nicht so ist, wird a nach hinten geschoben 
         if(indexLeftKey != NOINDEX && indexRightKey != NOINDEX){
           return reverse(mode,normalSort(String.valueOf(indexLeftKey), String.valueOf(indexRightKey)));
@@ -124,7 +124,7 @@ public class CompareHelper
      * @return -1, 0, 1
      */
     public static int normalSort(String leftkey, String rightkey){
-      //falls bei x,y   y == null ist gibt es keine Veränderung. So werden alle
+      //falls bei x,y   y == null ist gibt es keine VerÃ¤nderung. So werden alle
       //null werte nach an das Ende sortiert
     	if(rightkey!= null){
 	        //wenn es sich um 2 Zahlen handelt wird verglichen

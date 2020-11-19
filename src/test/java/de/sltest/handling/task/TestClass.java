@@ -102,7 +102,7 @@ public class TestClass {
 				"5. Test\n" +
 				"6. Inaktive Tasks entfernen\n" +
 				"7. Alle Tasks beenenden\n" +
-				"8. Programm schlieﬂen\n" +
+				"8. Programm schlie√üen\n" +
 				"Eingabe:");
 	}
 	

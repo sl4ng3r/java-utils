@@ -11,9 +11,9 @@ public class Calculator {
 
   /**
    * 
-   * <p>Wandelt Dezimalzahlen in Binärzahlen um. </p>
-   * @param dezimal Die übergebene Dezimalzahllzahl
-   * @return Gibt die Binärzahl als String zurück
+   * <p>Wandelt Dezimalzahlen in BinÃ¤rzahlen um. </p>
+   * @param dezimal Die Ã¼bergebene Dezimalzahllzahl
+   * @return Gibt die BinÃ¤rzahl als String zurÃ¼ck
    */
 	public static String deziToBin(long dezimal)
 	{
@@ -30,16 +30,16 @@ public class Calculator {
   
 	/**
    * 
-   * <p>Wandelt Binärzahlen in Dezimalzahlen um.</p>
-   * @param bin Übergebene Binährzahl
-   * @return Gibt die Dezimalzahl zurück
+   * <p>Wandelt BinÃ¤rzahlen in Dezimalzahlen um.</p>
+   * @param bin ï¿½bergebene BinÃ¤hrzahl
+   * @return Gibt die Dezimalzahl zurÃ¼ck
 	 */
 	public static long binToDezi(String bin)
 	{
 		long dezimal= 0;
 		for(int i=0; i<bin.length(); i++)
 		{
-			dezimal = dezimal * 2 + Long.parseLong(bin.substring(i,i+1));  //wandelt binär zu Dezimalzahl
+			dezimal = dezimal * 2 + Long.parseLong(bin.substring(i,i+1));  //wandelt binÃ¤r zu Dezimalzahl
 		}
 		return dezimal;
 	}

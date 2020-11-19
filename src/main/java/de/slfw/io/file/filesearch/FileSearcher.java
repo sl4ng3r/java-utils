@@ -1,12 +1,10 @@
-package de.slfw.io.filesearch;
+package de.slfw.io.file.filesearch;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.FileVisitOption;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.EnumSet;
-import java.util.HashSet;
 import java.util.List;
 
 public class FileSearcher implements PoolFlushedListener {

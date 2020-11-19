@@ -1,13 +1,9 @@
 package de.sltest.io;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Vector;
 
-import de.slfw.io.FileOperationListener;
-import de.slfw.io.FileOperator;
+import de.slfw.io.file.FileOperationListener;
+import de.slfw.io.file.FileOperator;
 import de.slfw.io.compare.FileCompare;
 
 
@@ -82,8 +78,8 @@ public class Testclass implements FileOperationListener{
 			//FileOperator.getAllLinesWithString(new File("C:/Users/alex/test/test2.txt"),new File("C:/Users/alex/test/test.txt"), " super ", 200000, this);
 			//FileOperator.printList(FileOperator.listAllFilesInDirectory("D:/Java/MyFramework/SlangersFW/testfolder"));
 			
-			//FileOperator.getAllLinesWithString(new File("C:/Users/alex/test/MIKROTYP AMaster_073_Testlieferung.dat"),new File("C:/Users/alex/test/test.txt"), " Nürnberg ",  this);
-			//FileOperator.getNumberOfLinesWithString(new File("C:/Users/alex/test/MIKROTYP AMaster_073_Testlieferung.dat"),new File("C:/Users/alex/test/test.txt"), " Nürnberg ",900,  this);
+			//FileOperator.getAllLinesWithString(new File("C:/Users/alex/test/MIKROTYP AMaster_073_Testlieferung.dat"),new File("C:/Users/alex/test/test.txt"), " Nï¿½rnberg ",  this);
+			//FileOperator.getNumberOfLinesWithString(new File("C:/Users/alex/test/MIKROTYP AMaster_073_Testlieferung.dat"),new File("C:/Users/alex/test/test.txt"), " Nï¿½rnberg ",900,  this);
 			
 			//System.out.println("abcde.txt".indexOf(".txt"));
 			//-->FileOperator.printList(FileOperator.getAllFilesWithExtention("testfolder", ".sla"));

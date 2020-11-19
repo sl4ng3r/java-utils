@@ -14,7 +14,7 @@ public class DataBaseOperations extends MyTimedTask {
 	@Override
 	public void doRun() {
 		for(int i=0;i<20;i++){
-			System.out.println("Datenbank Operationen durchgeführt");
+			System.out.println("Datenbank Operationen durchgefÃ¼hrt");
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {

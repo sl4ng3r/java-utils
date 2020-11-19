@@ -34,7 +34,7 @@ public class IOUtils {
 	
 	
 	/**
-	 * A generic method that returns one of the Objects which were give over. The return Type is the same as the parameter type
+	 * A generic method that returns one of the Objects given. The return Type is the same as the parameter type
 	 * @param <T>
 	 * @param randoms Defined as T... You can give over Arrays or an unlimited amount of Parameters of any Type
 	 * @return An instance of type T

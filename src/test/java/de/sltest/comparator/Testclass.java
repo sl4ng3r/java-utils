@@ -27,10 +27,10 @@ public class Testclass implements ExceptionListener {
 		aVec.add(new MyTestObject("1","*"));
 		aVec.add(new MyTestObject("2","37"));
 		aVec.add(new MyTestObject("3","-5"));
-		aVec.add(new MyTestObject("4","§OU"));
+		aVec.add(new MyTestObject("4","Â§OU"));
 		aVec.add(new MyTestObject("5",null));
 		aVec.add(new MyTestObject("6","x"));
-		aVec.add(new MyTestObject("7","§$$$"));
+		aVec.add(new MyTestObject("7","Â§$$$"));
 		aVec.add(new MyTestObject("8","-9"));
 		aVec.add(new MyTestObject("9","%"));
 		aVec.add(new MyTestObject("10","+2"));

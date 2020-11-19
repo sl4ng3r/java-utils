@@ -1,8 +1,8 @@
 package de.sltest.io.fileSearch;
 
-import de.slfw.io.filesearch.FileSearchParams;
-import de.slfw.io.filesearch.FileSearcher;
-import de.slfw.io.filesearch.FilesFoundListener;
+import de.slfw.io.file.filesearch.FileSearchParams;
+import de.slfw.io.file.filesearch.FileSearcher;
+import de.slfw.io.file.filesearch.FilesFoundListener;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

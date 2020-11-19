@@ -2,7 +2,7 @@ package de.sltest.io;
 
 import java.io.File;
 
-import de.slfw.io.FileOperator;
+import de.slfw.io.file.FileOperator;
 
 public class TestFileOperatior {
 

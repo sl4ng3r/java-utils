@@ -15,8 +15,8 @@ public class Terminal {
   /**
    * 
    * <p>Liest das erste Zeichen eines String oder eines Chararrays ein und gibt es als
-   * einzelnes char zurück.</p>
-   * @return Gibt ein Char zurück
+   * einzelnes char zurÃ¼ck.</p>
+   * @return Gibt ein Char zurï¿½ck
    * @throws IOException
    */
 	public static char readChar() throws IOException	{
@@ -25,7 +25,7 @@ public class Terminal {
 	/**
    * 
    * <p>Wandelt den eingegebenen String  in eine Double um.</p>
-   * @return Gibt eine Double zurück
+   * @return Gibt eine Double zurÃ¼ck
    * @throws IOException
 	 */
 	public static double readDouble() throws IOException	{
@@ -35,7 +35,7 @@ public class Terminal {
   /**
    * 
    * <p>Wandelt den eingegebenen String in eine Float um.</p>
-   * @return Gibt eine Float zurück
+   * @return Gibt eine Float zurÃ¼ck
    * @throws IOException
    */
 	public static float readFload() throws IOException	{		
@@ -45,7 +45,7 @@ public class Terminal {
   /**
    * 
    * <p>Wandelt den eingegebenen String in eine Int um.</p>
-   * @return Gibt eine Int zurück
+   * @return Gibt eine Int zurÃ¼ck
    * @throws NumberFormatException 
    * @throws IOException
    */	
@@ -56,7 +56,7 @@ public class Terminal {
   /**
    * 
    * <p>Wandelt den eingegebenen String in eine Long um.</p>
-   * @return Gibt eine Long zurück
+   * @return Gibt eine Long zurÃ¼ck
    * @throws NumberFormatException 
    * @throws IOException
    */ 
@@ -68,7 +68,7 @@ public class Terminal {
   /**
    * 
    * <p>Wandelt den eingegebenen String in eine Short um.</p>
-   * @return Gibt eine Short zurück
+   * @return Gibt eine Short zurÃ¼ck
    * @throws NumberFormatException 
    * @throws IOException
    */
@@ -79,7 +79,7 @@ public class Terminal {
 	/**
    * 
    * <p>Wandelt den eingegebene in einen String um.</p>
-   * @return Gibt einen String zurück
+   * @return Gibt einen String zurÃ¼ck
    * @throws IOException
 	 */
 	public static String readString() throws IOException 	{

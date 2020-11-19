@@ -6,7 +6,7 @@ package de.slfw.comparator;
  * 
  * <p>A dummy comparator with a reflection method call.</p>
  * <p>
- * To use this comparator you only have to spezifie the name of the method witch returns the values 
+ * To use this comparator you only have to specify the name of the method witch returns the values
  * you want to compare. It is easy to use but not as fast as an normal comparator. To get better performance
  * it is recommended to extend the AbstractComparator in an seperate class. 
  * </p>

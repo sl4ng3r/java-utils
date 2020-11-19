@@ -35,7 +35,7 @@ public abstract class AbstractComparator<T> implements Comparator<T>{
 	 * the Comparehelper will not sort the values. 
 	 */
 	public AbstractComparator(){	
-    //Es wurde keine sortOrder übergeben. Sort Order wird ein null-Array zugewiesen
+    //Es wurde keine sortOrder Ã¼bergeben. Sort Order wird ein null-Array zugewiesen
     //wodurch sortOrder (z.b. im Comparehelper) nicht beachtet wird
 		sortOrder = NULLARRAY;
 	}

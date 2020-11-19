@@ -2,7 +2,7 @@ package de.sltest.io;
 
 import java.io.IOException;
 
-import de.slfw.io.CSVBuilder;
+import de.slfw.io.csv.CSVBuilder;
 
 public class TestCSVBuilder {
 
